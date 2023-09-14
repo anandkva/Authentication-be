@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
-mongoose.connect(process.env.MongoDb_Url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.set("strictQuery", true);
+// mongoose.connect(process.env.MongoDb_Url, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+// mongoose.set("strictQuery", true);
 
 async function CheckUser(email) {
   try {

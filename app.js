@@ -7,6 +7,8 @@ const cors = require("cors");
 var app = express();
 var loginRouter = require("./routes/login");
 var signinRouter = require("./routes/signin");
+const connectDb = require("./db");
+connectDb();
 
 
 
