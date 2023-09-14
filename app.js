@@ -8,6 +8,8 @@ var app = express();
 var loginRouter = require("./routes/login");
 var signinRouter = require("./routes/signin");
 const connectDb = require("./db");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const session = require('express-session');
 const redis = require('redis');
@@ -20,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-connectDb();
+connectDb(process.env.MongoDb_Url);
 
 const redisClient = redis.createClient({
   host: 'localhost',
