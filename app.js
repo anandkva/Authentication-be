@@ -8,7 +8,7 @@ var app = express();
 var loginRouter = require("./routes/login");
 var signinRouter = require("./routes/signin");
 const connectDb = require("./db");
-connectDb();
+
 
 
 
@@ -18,6 +18,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+connectDb();
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
