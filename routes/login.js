@@ -6,6 +6,12 @@ const { AuthenticateUser } = require("../Controller/login");
 router.post("/", async function (req, res, next) {
   try {
     const { email, password } = await req.body;
+
+    const sess = req.session;
+    sess.username = email
+    sess.password = password
+
+
     console.log(email,password)
     var loginCredentials = await AuthenticateUser(email, password);
     if (loginCredentials === false) {
