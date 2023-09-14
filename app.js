@@ -21,13 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-client.connect().then(() => {
-  console.log('Connected to Redis');
-}).catch((err) => {
-  console.log(err.message);
-})
-
-
 connectDb();
 
 
