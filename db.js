@@ -4,8 +4,8 @@ dotenv.config();
 
 const connectDb = async () => {
   try {
-    mongoose.set("strictQuery", false);
-    await mongoose.connect("mongodb+srv://swathy:Swathy1996@cluster0.lvwbu.mongodb.net/", {
+    await mongoose.set("strictQuery", false);
+    await mongoose.connect(process.env.MongoDb_Url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
