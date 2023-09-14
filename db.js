@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-mongoose.set("strictQuery", false);
+
 const connectDb = async () => {
   try {
+    mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MongoDb_Url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
