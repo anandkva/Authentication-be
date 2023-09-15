@@ -7,11 +7,10 @@ const cors = require("cors");
 var app = express();
 var loginRouter = require("./routes/login");
 var signinRouter = require("./routes/signin");
+var homeRouter=require("./routes/home")
 const dotenv = require("dotenv");
 dotenv.config();
 const connectDb = require("./db");
-
-const client=require("./redis");
 
 app.use(cors({ origin: "*" }));
 
@@ -19,7 +18,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 
 connectDb();
 
@@ -32,7 +30,7 @@ app.get('/', (req, res) => {
 
 app.use("/login", loginRouter);
 app.use("/signin", signinRouter);
-
+app.use("/home", homeRouter);
 
 
 app.listen("4000", () => {
